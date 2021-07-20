@@ -44,7 +44,7 @@ if isempty(gdir)
 end
 
 try
-    unitTest = MainGUI(groupDirs, inputFileFormat, unitTest, 'userargs');    
+    unitTest = MainGUI(groupDirs, inputFileFormat, unitTest, 'userargs');
 catch ME
     % Clean up in case of error make sure all open file handles are closed 
     % so we don't leave the application in a bad state

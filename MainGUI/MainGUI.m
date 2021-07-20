@@ -76,6 +76,9 @@ if ~isempty(maingui.unitTest)
     maingui.unitTest.Initialize(handles, @UnitTestInit);
 end
 
+setNamespace('Homer3');
+
+
 
 % ---------------------------------------------------------------------
 function MainGUI_EnableDisableGUI(handles, val)
@@ -277,6 +280,7 @@ varargout{1} = maingui.unitTest;
 function [eventdata, handles] = MainGUI_DeleteFcn(hObject, eventdata, handles)
 global maingui;
 
+deleteNamespace('Homer3');
 if ishandles(hObject)
     delete(hObject)
 end
@@ -298,6 +302,11 @@ delete(maingui.dataTree);
 maingui = [];
 clear maingui;
 
+
+
+% --------------------------------------------------------------------
+function [eventdata, handles] = MainGUI_CloseFcn(hObject, eventdata, handles)
+deleteNamespace('Homer3');
 
 
 % --------------------------------------------------------------------------------------------
